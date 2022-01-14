@@ -15,7 +15,6 @@ function OderdetailItem({ oderDetailData }) {
       return total;
     }
   };
-
   const handleConfirm = () => {
     dispatch(oderConfirm(oderDetailData.id));
   };
@@ -67,12 +66,18 @@ function OderdetailItem({ oderDetailData }) {
       <td className="create_on">{oderDetailData.createdOn}</td>
       <td className="update_on">{oderDetailData.updatedOn}</td>
       <td>
-        <span className="badge badge-dot mr-4">
-          <i className={`bg-${oderstatus(oderDetailData.status).status}`} />
-          <span className="status">
-            {oderstatus(oderDetailData.status).msg}
+        {
+          <span className="badge badge-dot mr-4">
+            <i
+              className={`bg-${
+                oderstatus(oderDetailData.status || null).status
+              }`}
+            />
+            <span className="status">
+              {oderstatus(oderDetailData.status || null).msg}
+            </span>
           </span>
-        </span>
+        }
       </td>
 
       <td className="product_optinons">

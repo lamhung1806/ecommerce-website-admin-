@@ -31,11 +31,11 @@ function ProductItem(props) {
           </div>
         </div>
       </th>
-      <td className="budget">{props.data.price} USD</td>
+      <td className="budget">{props.data.promotionPrice} VND</td>
       <td>
         <span className="badge badge-dot mr-4">
           <i className="bg-success" />
-          <span className="status">{props.data.promotionPrice} USD</span>
+          <span className="status"> {props.data.price} VND</span>
         </span>
       </td>
       <td className="Product_color">{props.data.color}</td>
