@@ -51,7 +51,7 @@ function OderdetailItem({ oderDetailData }) {
                           src={`data:image/jpeg;base64,${item.image}`}
                         />
                       </td>
-                      <td>{item.price} VND</td>
+                      <td>{item.price.toLocaleString("vi-VN")} VND</td>
                       <td>{item.quantity}</td>
                     </tr>
                   ))}
@@ -60,7 +60,9 @@ function OderdetailItem({ oderDetailData }) {
           </span>
         </span>
       </td>
-      <td className="total_money">{totalMoney()}</td>
+      <td className="total_money">
+        {(totalMoney() || 0).toLocaleString("vi-VN")} VND
+      </td>
       <td className="phone_oder">{oderDetailData.phone}</td>
       <td className="adress_oder">{oderDetailData.address}</td>
       <td className="create_on">{oderDetailData.createdOn}</td>

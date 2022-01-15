@@ -1,16 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import OderItem from "./oderItem/OderItem";
-import { getOder } from "../redux/action/oderActions";
+import React from "react";
+import UserManagerItem from "./UserManagerItem";
 
-function Oder(props) {
-  const dispatch = useDispatch();
-  const listOder = useSelector((state) => state.oder.oderData);
-  useEffect(() => {
-    dispatch(getOder());
-  }, []);
-
+function User(props) {
   return (
     <React.Fragment>
       <div style={{ margin: "50px 0 0 0" }}></div>
@@ -20,7 +11,7 @@ function Oder(props) {
             <div className="card">
               {/* Card header */}
               <div className="card-header border-0">
-                <h3 className="mb-0 text-center">Oder Table</h3>
+                <h3 className="mb-0 text-center">User Management Table</h3>
               </div>
               {/* Light table */}
               <div className="table-responsive">
@@ -31,27 +22,28 @@ function Oder(props) {
                         Id
                       </th>
                       <th scope="col" className="sort" data-sort="budget">
-                        Status
-                      </th>
-                      <th scope="col" className="sort" data-sort="budget">
                         User Name
                       </th>
+                      <th scope="col" className="sort" data-sort="budget">
+                        Email
+                      </th>
                       <th scope="col" className="sort" data-sort="status">
-                        Phone
+                        Name
                       </th>
                       <th scope="col" className="sort" data-sort="completion">
-                        Address
+                        Roles
                       </th>
                       <th scope="col">CreateOn</th>
                       <th scope="col">UptateOn</th>
 
-                      <th scope="col">Detail</th>
+                      <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="list">
-                    {listOder.map((item, index) => (
+                    {/* {listOder.map((item, index) => (
                       <OderItem key={index} data={item} />
-                    ))}
+                    ))} */}
+                    <UserManagerItem />
                   </tbody>
                 </table>
               </div>
@@ -65,4 +57,4 @@ function Oder(props) {
   );
 }
 
-export default Oder;
+export default User;
