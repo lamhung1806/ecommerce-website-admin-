@@ -1,5 +1,6 @@
 import axios from "axios";
 import { token, url } from "../../../constains/config";
+import { notifyError, notifySuccess } from "../../../constains/msg";
 
 export const getOderAction = (data) => {
   return {
@@ -56,12 +57,13 @@ export const oderConfirm = (data) => (dispatch) => {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then(() => {
+      notifySuccess();
       dispatch(oderConfirmAction());
       dispatch(getOderById(JSON.parse(localStorage.getItem("idOder"))));
       dispatch(getOderAction());
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      notifyError();
     });
 };
 export const oderCancel = (data) => (dispatch) => {
@@ -70,6 +72,7 @@ export const oderCancel = (data) => (dispatch) => {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then(() => {
+      notifySuccess();
       dispatch(oderCancelAction());
       dispatch(getOderById(JSON.parse(localStorage.getItem("idOder"))));
       dispatch(getOderAction());

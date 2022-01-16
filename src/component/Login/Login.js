@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { url } from "../../constains/config";
+import { notifyError, notifySuccess } from "../../constains/msg";
 import { getDataUser } from "../redux/action/loginAction";
 import "./style.css";
 
@@ -23,11 +24,14 @@ function Login() {
       .then((response) => {
         localStorage.setItem("adtoken", response.data);
         dispatch(getDataUser(response.data));
-        history.push("/ProductManagement");
-        window.location.reload();
+        notifySuccess();
+        setTimeout(() => {
+          history.push("/ProductManagement");
+          window.location.reload();
+        }, 500);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        notifyError();
       });
   };
   const handleLogin = (e) => {

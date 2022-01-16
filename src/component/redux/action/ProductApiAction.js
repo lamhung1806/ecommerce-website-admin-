@@ -1,5 +1,6 @@
 import axios from "axios";
-import { token } from "../../../constains/config";
+import { token, url } from "../../../constains/config";
+import { notifyError, notifySuccess } from "../../../constains/msg";
 import callApi from "../../../utils/callApi";
 
 export const getData = (data) => {
@@ -49,33 +50,39 @@ export const fetchProducts = () => async (dispatch) => {
 };
 export const deleteProducts = (id) => (dispatch) => {
   axios
-    .delete(`https://localhost:44305/api/Products/Delete/${id}`, {
+    .delete(`${url}/Products/Delete/${id}`, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
       dispatch(deleteProduct());
       dispatch(fetchProducts());
+      notifySuccess();
     })
 
-    .catch((err) => console.log(err));
+    .catch(() => {
+      notifyError();
+    });
 };
 
 export const addProducts = (data) => (dispatch) => {
   axios
-    .post(`https://localhost:44305/api/Products/Create`, data, {
+    .post(`${url}/Products/Create`, data, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
       dispatch(addProduct());
       dispatch(fetchProducts());
+      notifySuccess();
     })
 
-    .catch((err) => console.log(err));
+    .catch(() => {
+      notifyError();
+    });
 };
 
 export const getAProducts = (id) => (dispatch) => {
   axios
-    .get(`https://localhost:44305/api/Products/GetById/${id}`, null)
+    .get(`${url}/Products/GetById/${id}`, null)
     .then((response) => {
       dispatch(getAProduct(response.data));
     })
@@ -84,13 +91,16 @@ export const getAProducts = (id) => (dispatch) => {
 };
 export const updateProducts = (dataProduct) => (dispatch) => {
   axios
-    .put(`https://localhost:44305/api/Products/Update`, dataProduct, {
+    .put(`${url}/Products/Update`, dataProduct, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
       dispatch(updateProduct());
       dispatch(fetchProducts());
+      notifySuccess();
     })
 
-    .catch((err) => console.log(err));
+    .catch(() => {
+      notifyError();
+    });
 };

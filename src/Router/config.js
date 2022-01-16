@@ -4,6 +4,7 @@ import Oder from "../component/Oder/Oder";
 import Oderdetail from "../component/Oder/oderDetail/Oderdetail";
 import Login from "../component/Login/Login";
 import UserManagement from "../component/User/UserManagement";
+import UpdateRole from "../component/User/UpdateRole";
 const router = [
   {
     path: "/productManagement",
@@ -28,6 +29,10 @@ const router = [
   {
     path: "/userManagement",
     component: UserManagement,
+  },
+  {
+    path: "/userManagement/Roles",
+    component: UpdateRole,
   },
 ];
 

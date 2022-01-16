@@ -19,7 +19,6 @@ function Header() {
     <nav className="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* Search form */}
           <form
             style={{ display: "none" }}
             className="navbar-search navbar-search-light form-inline mr-sm-3"

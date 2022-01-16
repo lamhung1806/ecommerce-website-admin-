@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteProducts, resetForm } from "../redux/action/ProductApiAction";
 import { changeStatusForm } from "../redux/action/statusFormAction";
 import ProductForm from "./categoryForm/CartegoryForm";
 import CategoryItem from "./categorytItem/CategoryItem";

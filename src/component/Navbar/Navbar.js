@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar() {
   return (
     <nav
       className="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white"
@@ -25,7 +25,7 @@ function Navbar(props) {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link active" href="examples/dashboard.html">
-                  <i className="ni ni-tv-2 text-primary" />
+                  <i className="bi bi-chevron-double-right"></i>
                   <span className="nav-link-text">Dashboard</span>
                 </a>
               </li>
@@ -54,28 +54,14 @@ function Navbar(props) {
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="examples/tables.html">
+                <Link
+                  to="userManagement"
+                  className="nav-link"
+                  href="examples/tables.html"
+                >
                   <i className="ni ni-bullet-list-67 text-default" />
-                  <span className="nav-link-text">Tables</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="examples/login.html">
-                  <i className="ni ni-key-25 text-info" />
-                  <span className="nav-link-text">Login</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="examples/register.html">
-                  <i className="ni ni-circle-08 text-pink" />
-                  <span className="nav-link-text">Register</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="examples/upgrade.html">
-                  <i className="ni ni-send text-dark" />
-                  <span className="nav-link-text">Upgrade</span>
-                </a>
+                  <span className="nav-link-text">User Management</span>
+                </Link>
               </li>
             </ul>
             {/* Divider */}

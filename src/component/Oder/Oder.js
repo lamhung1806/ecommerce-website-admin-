@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import OderItem from "./oderItem/OderItem";
 import { getOder } from "../redux/action/oderActions";
 
-function Oder(props) {
+function Oder() {
   const dispatch = useDispatch();
   const listOder = useSelector((state) => state.oder.oderData);
   useEffect(() => {

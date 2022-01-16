@@ -2,6 +2,7 @@ import axios from "axios";
 import callApi from "../../../utils/callApi";
 import { token } from "../../../constains/config";
 import { url } from "../../../constains/config";
+import { notifyError, notifySuccess } from "../../../constains/msg";
 
 export const getCategory = (data) => {
   return {
@@ -49,27 +50,31 @@ export const getCategorys = (data) => (dispatch) => {
 };
 export const addCategorys = (data) => (dispatch) => {
   axios
-    .post("https://localhost:44305/api/Categories/Create", data, {
+    .post(`${url}/Categories/Create`, data, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
+      notifySuccess();
       dispatch(addCategory());
       dispatch(getCategorys());
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(() => {
+      notifyError();
     });
 };
 export const deleteCategorys = (id) => (dispatch) => {
   axios
-    .delete(`https://localhost:44305/api/Categories/Delete/ ${id}`, {
+    .delete(`${url}/Categories/Delete/ ${id}`, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
+      notifySuccess();
       dispatch(deleteCategory());
       dispatch(getCategorys());
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      notifyError();
+    });
 };
 export const getACategorys = (data) => (dispatch) => {
   axios
@@ -83,12 +88,15 @@ export const getACategorys = (data) => (dispatch) => {
 };
 export const updateACategorys = (data) => (dispatch) => {
   axios
-    .put(`https://localhost:44305/api/Categories/Update`, data, {
+    .put(`${url}/Categories/Update`, data, {
       headers: { authorization: `Bearer ${token}` },
     })
     .then(() => {
+      notifySuccess();
       dispatch(updateCategory());
       dispatch(getCategorys());
     })
-    .catch((err) => console.log(err));
+    .catch(() => {
+      notifyError();
+    });
 };

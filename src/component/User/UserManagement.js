@@ -1,7 +1,16 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUserData } from "../redux/action/userAction";
 import UserManagerItem from "./UserManagerItem";
 
-function User(props) {
+function User() {
+  const dispatch = useDispatch();
+  const listUser = useSelector((state) => state.user.listUser);
+  useEffect(() => {
+    dispatch(getUserData());
+  }, []);
   return (
     <React.Fragment>
       <div style={{ margin: "50px 0 0 0" }}></div>
@@ -28,22 +37,19 @@ function User(props) {
                         Email
                       </th>
                       <th scope="col" className="sort" data-sort="status">
-                        Name
+                        Full Name
                       </th>
                       <th scope="col" className="sort" data-sort="completion">
                         Roles
                       </th>
-                      <th scope="col">CreateOn</th>
-                      <th scope="col">UptateOn</th>
 
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="list">
-                    {/* {listOder.map((item, index) => (
-                      <OderItem key={index} data={item} />
-                    ))} */}
-                    <UserManagerItem />
+                    {listUser.map((item, index) => (
+                      <UserManagerItem key={index} data={item} />
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -51,8 +57,6 @@ function User(props) {
           </div>
         </div>
       </div>
-      {/*   
-        {statusForm && <ProductForm />} */}
     </React.Fragment>
   );
 }
