@@ -63,6 +63,12 @@ export const deleteProducts = (id) => (dispatch) => {
       notifyError();
     });
 };
+export const searchProductAction = (data) => {
+  return {
+    type: "SEARCH_PRODUCT",
+    payload: data,
+  };
+};
 
 export const addProducts = (data) => (dispatch) => {
   axios
@@ -102,5 +108,18 @@ export const updateProducts = (dataProduct) => (dispatch) => {
 
     .catch(() => {
       notifyError();
+    });
+};
+export const searchProducts = (data) => (dispatch) => {
+  axios
+    .get(`${url}/Products/SearchByName/${data}`, null, {
+      headers: { authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      dispatch(searchProductAction(response.data));
+    })
+
+    .catch((err) => {
+      console.log(err);
     });
 };

@@ -31,6 +31,12 @@ const category = (state = categoryInitialState, action) => {
         ...state,
       };
     }
+    case "SEARCH_CATEGORY": {
+      return {
+        ...state,
+        dataCategory: action.payload,
+      };
+    }
     case "RESET_FORM_CATEGORY": {
       return {
         ...state,

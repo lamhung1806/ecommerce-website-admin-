@@ -10,15 +10,17 @@ import { fetchProducts } from "./component/redux/action/ProductApiAction";
 import { getCategorys } from "./component/redux/action/CategoryAction";
 import { getDataUser } from "./component/redux/action/loginAction";
 import { token } from "./constains/config";
-import Footer from "./component/footer/Footer";
+// import Footer from "./component/footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getOder } from "./component/redux/action/oderActions";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(getCategorys());
+    dispatch(getOder());
     if (token) {
       dispatch(getDataUser(token));
     }

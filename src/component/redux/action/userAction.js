@@ -1,5 +1,5 @@
 import axios from "axios";
-import { url } from "../../../constains/config";
+import { token, url } from "../../../constains/config";
 import { notifyError, notifySuccess } from "../../../constains/msg";
 export const getUerDataAction = (data) => {
   return {
@@ -19,32 +19,43 @@ export const getRolesUerAction = (data) => {
     payload: data,
   };
 };
+export const searchUserAction = (data) => {
+  return {
+    type: "SEARCH_USER",
+    payload: data,
+  };
+};
 
-export const getUserData = () => async (dispatch) => {
-  try {
-    const response = await axios.get(`${url}/Accounts/GetAllUsers`);
-    dispatch(getUerDataAction(response.data));
-  } catch {
-    console.log("lỗi");
-  }
+// export const getUserData = () => async (dispatch) => {
+//   try {
+//     const response = await axios.get(`${url}/Accounts/GetAllUsers`, {
+//       headers: { Authorization: `Bearer ${token}` },
+//     });
+//     dispatch(getUerDataAction(response.data));
+//   } catch {
+//     console.log("lỗi");
+//   }
+// };
+export const getUserData = () => (dispatch) => {
+  axios
+    .get(`${url}/Accounts/GetAllUsers`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      dispatch(getUerDataAction(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 export const getRolesUser = (data) => async (dispatch) => {
   try {
-    const response = await axios.get(`${url}/Accounts/GetRoles/${data}`);
+    const response = await axios.get(`${url}/Accounts/GetRoles/${data}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     dispatch(getRolesUerAction(response.data));
     dispatch(getIdUerDataAction(data));
   } catch {
     console.log("lỗi");
   }
-};
-export const UpdateRolesUser = (data) => (dispatch) => {
-  axios
-    .put(`${url}/Accounts/UpdateRoles/${data.id}`, data.role)
-    .then(() => {
-      notifySuccess();
-      dispatch(getUserData());
-    })
-    .catch(() => {
-      notifyError();
-    });
 };

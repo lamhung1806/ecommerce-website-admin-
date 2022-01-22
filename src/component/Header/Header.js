@@ -300,7 +300,7 @@ function Header() {
           </ul>
           {!token ? (
             <Link to="/login" className="text-white">
-              Đăng nhập
+              Login
             </Link>
           ) : (
             <ul className="navbar-nav align-items-center  ml-auto ml-md-0 ">

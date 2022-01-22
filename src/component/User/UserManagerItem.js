@@ -5,15 +5,15 @@ import { getRolesUser } from "../redux/action/userAction";
 
 function UserManagerItem({ data }) {
   const dispatch = useDispatch();
-  const handleUpdateRole = (e) => {
+  const handleUpdateRole = () => {
     dispatch(getRolesUser(data.userId));
   };
   return (
     <tr>
-      <td className="userId">{data.userId}</td>
+      {/* <td className="userId">{data.userId}</td> */}
       <td className="userName">{data.userName}</td>
       <td className="Email_User">{data.email}</td>
-      <td className="fullName_User">{data.firstName}</td>
+      {/* <td className="fullName_User">{data.firstName}</td> */}
       <td className="roles_user">
         {data.roles.map((item, id) => (
           <span key={id} style={{ marginLeft: "20px" }}>

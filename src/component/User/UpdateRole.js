@@ -1,18 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { url } from "../../constains/config";
+import { token, url } from "../../constains/config";
 import { notifyError, notifySuccess } from "../../constains/msg";
-import { getUserData } from "../redux/action/userAction";
+import { getRolesUerAction, getUserData } from "../redux/action/userAction";
 
 function UpdateRole() {
   const idUser = useSelector((state) => state.user.idUser);
   const dispatch = useDispatch();
   const listRoles = useSelector((state) => state.user.listRoles);
   let history = useHistory();
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState();
 
   const handleChange = (item) => {
     item.selected = !item.selected;
@@ -21,12 +22,21 @@ function UpdateRole() {
       role: listRoles,
     });
   };
+  useEffect(() => {
+    return dispatch(getRolesUerAction([]));
+  }, []);
+
   const handlerUpdate = () => {
-    dispatch(UpdateRolesUser(data));
+    if (data) dispatch(UpdateRolesUser(data));
+    else {
+      history.goBack();
+    }
   };
   const UpdateRolesUser = (data) => (dispatch) => {
     axios
-      .put(`${url}/Accounts/UpdateRoles/${data.id}`, data.role)
+      .put(`${url}/Accounts/UpdateRoles/${data.id}`, data.role, {
+        headers: { authorization: `Bearer ${token}` },
+      })
       .then(() => {
         notifySuccess();
         dispatch(getUserData());

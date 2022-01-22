@@ -34,7 +34,7 @@ function Login() {
         notifyError();
       });
   };
-  const handleLogin = (e) => {
+  const handleLogin = () => {
     dispatch(getToken(dataLogin));
   };
 

@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteProducts, resetForm } from "../redux/action/ProductApiAction";
+import {
+  deleteProducts,
+  fetchProducts,
+  resetForm,
+  searchProducts,
+} from "../redux/action/ProductApiAction";
 import { changeStatusForm } from "../redux/action/statusFormAction";
 import ProductForm from "./ProductForm/ProductForm";
 import ProductItem from "./ProductItem/ProductItem";
+import ProductPagination from "./ProductPagination";
 import "./style.css";
 
 function ProductManagement() {
+  const [postPerPage, setPostPerPage] = useState(5);
+  const [curentPage, setCurentPage] = useState(1);
   const statusForm = useSelector((state) => state.statusFormReducer.status);
   const dispatch = useDispatch();
   const productAll = useSelector((state) => state.apiProductAll.dataProductAll);
+  const indexOfLastPost = curentPage * postPerPage;
+  const indexOffirstPost = indexOfLastPost - postPerPage;
+  const curentPost = productAll.slice(indexOffirstPost, indexOfLastPost);
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
       dispatch(deleteProducts(id));
@@ -20,6 +31,14 @@ function ProductManagement() {
   const handlerADD = () => {
     dispatch(changeStatusForm());
     dispatch(resetForm());
+  };
+  const getNameProduct = (e) => {
+    e.target.value !== ""
+      ? dispatch(searchProducts(e.target.value))
+      : dispatch(fetchProducts());
+  };
+  const paginate = (data) => {
+    setCurentPage(data);
   };
   return (
     <React.Fragment>
@@ -34,6 +53,24 @@ function ProductManagement() {
                 <button onClick={handlerADD} className="btn btn-success">
                   Add Product
                 </button>
+
+                <div className="input-group input-group  mb-3">
+                  <input
+                    onChange={getNameProduct}
+                    type="text"
+                    className="form-control"
+                    placeholder="Product name"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Search
+                  </button>
+                </div>
               </div>
               {/* Light table */}
               <div className="table-responsive">
@@ -60,7 +97,7 @@ function ProductManagement() {
                     </tr>
                   </thead>
                   <tbody className="list">
-                    {productAll.map((item, index) => (
+                    {curentPost.map((item, index) => (
                       <ProductItem
                         handleDelete={(id) => handleDelete(id)}
                         key={index}
@@ -74,7 +111,11 @@ function ProductManagement() {
           </div>
         </div>
       </div>
-
+      <ProductPagination
+        totalPages={productAll.length}
+        postPerPage={postPerPage}
+        paginate={paginate}
+      ></ProductPagination>
       {statusForm && <ProductForm />}
     </React.Fragment>
   );

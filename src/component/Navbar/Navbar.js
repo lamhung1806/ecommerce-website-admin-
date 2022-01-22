@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import "./style.css";
 
 function Navbar() {
   return (
@@ -10,12 +11,12 @@ function Navbar() {
       <div className="scrollbar-inner">
         {/* Brand */}
         <div className="sidenav-header  align-items-center">
-          <Link to="#" className="navbar-brand">
-            <img
+          <Link to="/" className="navbar-brand">
+            {/* <img
               src="/assets/img/brand/blue.png"
               className="navbar-brand-img"
               alt="..."
-            />
+            /> */}
           </Link>
         </div>
         <div className="navbar-inner">
@@ -24,44 +25,49 @@ function Navbar() {
             {/* Nav items */}
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" href="examples/dashboard.html">
-                  <i className="bi bi-chevron-double-right"></i>
-                  <span className="nav-link-text">Dashboard</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <div className="nav-link" href="examples/icons.html">
-                  <i className="ni ni-planet text-orange" />
-                  <Link to="/ProductManagement" className="nav-link-text">
-                    Product Management
-                  </Link>
-                </div>
-              </li>
-              <li className="nav-item">
-                <div className="nav-link" href="examples/map.html">
-                  <i className="ni ni-pin-3 text-primary" />
-                  <Link to="/categoryManagement" className="nav-link-text">
-                    Category Management
-                  </Link>
-                </div>
-              </li>
-              <li className="nav-item">
-                <div className="nav-link" href="examples/map.html">
-                  <i className="ni ni-pin-3 text-primary" />
-                  <Link to="/oderManagement" className="nav-link-text">
-                    Oder Management
-                  </Link>
-                </div>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="userManagement"
-                  className="nav-link"
-                  href="examples/tables.html"
+                <NavLink
+                  activeClassName="active_Nav"
+                  to="/statistical"
+                  className="nav-link-text nav-link "
                 >
-                  <i className="ni ni-bullet-list-67 text-default" />
-                  <span className="nav-link-text">User Management</span>
-                </Link>
+                  Statistical
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeClassName="active_Nav"
+                  to="/productManagement"
+                  className="nav-link-text nav-link "
+                >
+                  Product Management
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/categoryManagement"
+                  className="nav-link"
+                  activeClassName="active_Nav"
+                >
+                  Category Management
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/oderManagement"
+                  className="nav-link"
+                  activeClassName="active_Nav"
+                >
+                  Oder Management
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/userManagement"
+                  className="nav-link"
+                  activeClassName="active_Nav"
+                >
+                  User Management
+                </NavLink>
               </li>
             </ul>
             {/* Divider */}

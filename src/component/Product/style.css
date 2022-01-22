@@ -22,3 +22,15 @@
  height: 100px;
  background-size: contain; ;
 }
+.button_primary {
+    width: 60px;
+}
+.button_primary:last-child {
+    margin-top: 10px;
+}
+.pagination{
+   align-content: center;
+}
+.curentpage {
+    cursor: pointer;
+}

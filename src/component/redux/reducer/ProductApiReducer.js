@@ -31,6 +31,11 @@ const Api = (state = ApiInitialState, action) => {
         ...state,
         dataAProduct: [],
       };
+    case "SEARCH_PRODUCT":
+      return {
+        ...state,
+        dataProductAll: action.payload,
+      };
     default:
       return state;
   }

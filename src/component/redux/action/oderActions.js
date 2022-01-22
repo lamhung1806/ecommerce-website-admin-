@@ -36,6 +36,7 @@ export const getOder = () => (dispatch) => {
       dispatch(getOderAction(response.data));
     })
     .catch((err) => {
+      console.log("lỗi");
       console.log(err);
     });
 };

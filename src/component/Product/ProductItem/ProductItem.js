@@ -36,7 +36,6 @@ function ProductItem(props) {
       </td>
       <td>
         <span className="badge badge-dot mr-4">
-          <i className="bg-success" />
           <span className="status">
             {" "}
             {props.data.price.toLocaleString("vi-VN")} VND
@@ -51,14 +50,14 @@ function ProductItem(props) {
           <button
             onClick={getAproduct}
             type="button"
-            className="btn btn-warning btn-sm"
+            className="btn btn-warning btn-sm button_primary"
           >
             Update
           </button>
           <button
             onClick={handleDelete}
             type="button"
-            className="btn btn-danger btn-sm"
+            className="btn btn-danger btn-sm button_primary"
           >
             Delete
           </button>

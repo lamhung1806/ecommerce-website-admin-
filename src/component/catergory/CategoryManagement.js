@@ -5,7 +5,11 @@ import { useDispatch } from "react-redux";
 import { changeStatusForm } from "../redux/action/statusFormAction";
 import ProductForm from "./categoryForm/CartegoryForm";
 import CategoryItem from "./categorytItem/CategoryItem";
-import { deleteCategorys, getCategorys } from "../redux/action/CategoryAction";
+import {
+  deleteCategorys,
+  getCategorys,
+  searchCategory,
+} from "../redux/action/CategoryAction";
 import { resetFormCategory } from "../redux/action/CategoryAction";
 import "./style.css";
 
@@ -26,6 +30,11 @@ function CategoryManagement() {
       dispatch(deleteCategorys(id));
     }
   };
+  const getNameCategory = (e) => {
+    e.target.value !== ""
+      ? dispatch(searchCategory(e.target.value))
+      : dispatch(getCategorys());
+  };
   return (
     <React.Fragment>
       <div style={{ margin: "50px 0 0 0" }}></div>
@@ -38,6 +47,24 @@ function CategoryManagement() {
                 <h3 className="mb-0 text-center">Product Categoty</h3>
                 <button onClick={handlerADD} className="btn btn-success">
                   Add Categoty
+                </button>
+              </div>
+              <div className="input-group input-group  mb-3">
+                <input
+                  onChange={getNameCategory}
+                  type="text"
+                  className="form-control"
+                  placeholder="Category Name"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  // onClick={handleSearch}
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  Search
                 </button>
               </div>
               {/* Light table */}

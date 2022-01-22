@@ -20,6 +20,11 @@ const userReducer = (state = userInitialState, action) => {
         ...state,
         listRoles: action.payload,
       };
+    case "SEARCH_USER":
+      return {
+        ...state,
+        listUser: action.payload,
+      };
     default:
       return state;
   }

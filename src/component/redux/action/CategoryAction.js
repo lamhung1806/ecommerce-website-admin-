@@ -40,6 +40,12 @@ export const resetFormCategory = (data) => {
     payload: data,
   };
 };
+export const searchCategoryAction = (data) => {
+  return {
+    type: "SEARCH_CATEGORY",
+    payload: data,
+  };
+};
 
 export const getCategorys = (data) => (dispatch) => {
   callApi("Categories/GetAll", "get", null, data, {
@@ -95,6 +101,18 @@ export const updateACategorys = (data) => (dispatch) => {
       notifySuccess();
       dispatch(updateCategory());
       dispatch(getCategorys());
+    })
+    .catch(() => {
+      notifyError();
+    });
+};
+export const searchCategory = (data) => (dispatch) => {
+  axios
+    .get(`${url}/Categories/SearchByName/${data}`, null, {
+      headers: { authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      dispatch(searchCategoryAction(response.data));
     })
     .catch(() => {
       notifyError();
