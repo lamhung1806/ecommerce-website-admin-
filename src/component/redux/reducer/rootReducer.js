@@ -5,6 +5,7 @@ import category from "./categoryDeducer";
 import oder from "./oderReducer";
 import login from "./loginReducer";
 import userReducer from "./userReducer";
+import Statistic from "./StatisticReducer";
 
 const rootReducer = combineReducers({
   apiProductAll: Api,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   oder: oder,
   login: login,
   user: userReducer,
+  Statistic: Statistic,
 });
 
 export default rootReducer;

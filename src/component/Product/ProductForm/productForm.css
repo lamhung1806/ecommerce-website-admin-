@@ -1,0 +1,31 @@
+.input_form {
+    caret-color: #5E72E4;
+    outline: none;
+  
+}
+.product_descriptions {
+   border-top: 1px solid rgb(236, 234, 234);
+    width: 200px;
+    height: 110px;
+    overflow: auto;
+    display: block;
+}
+.product_descriptions::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.product_descriptions::-webkit-scrollbar-track {
+   background:#fff;
+   border-radius:6px
+  }
+   
+  /* Handle */
+  .product_descriptions::-webkit-scrollbar-thumb {
+    background:rgba(204, 204, 204, 0.767);
+    border-radius:6px;
+  }
+  
+  /* Handle on hover */
+  .product_descriptions::-webkit-scrollbar-thumb:hover {
+    background:rgba(204, 204, 204, 0.959);
+  }

@@ -43,7 +43,7 @@ function ProductItem(props) {
         </span>
       </td>
       <td className="Product_color">{props.data.color}</td>
-      <td className="product_descriptions">{props.data.description}</td>
+      <div className="product_descriptions">{props.data.description}</div>
       <td className="product_quantity">{props.data.quantity}</td>
       <td className="product_optinons">
         <div className="row">

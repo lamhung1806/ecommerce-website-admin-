@@ -7,6 +7,7 @@ import {
   addProducts,
   updateProducts,
 } from "../../redux/action/ProductApiAction";
+import "./productForm.css";
 
 function ProductForm() {
   const dataCategory = useSelector((state) => state.category.dataCategory);
@@ -155,6 +156,17 @@ function ProductForm() {
             value={dataProduct.promotionPrice}
             onChange={(e) =>
               setDataPoduct({ ...dataProduct, promotionPrice: e.target.value })
+            }
+            type="text"
+            className="input_form"
+          />
+        </div>
+        <div className="row input_wrap">
+          <label className="product_name">Product description </label>
+          <input
+            value={dataProduct.description}
+            onChange={(e) =>
+              setDataPoduct({ ...dataProduct, description: e.target.value })
             }
             type="text"
             className="input_form"

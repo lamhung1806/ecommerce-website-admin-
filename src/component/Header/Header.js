@@ -104,7 +104,7 @@ function Header() {
                         {/* Avatar */}
                         <img
                           alt="Image placeholder"
-                          src="../src/assets/img/theme/team-1.jpg"
+                          src="https://lh3.googleusercontent.com/ogw/ADea4I6crQF6NZv_2mKbRDY5xdVCCdkz4VVn6zNlRESV=s32-c-mo"
                           className="avatar rounded-circle"
                         />
                       </div>
@@ -160,7 +160,7 @@ function Header() {
                         {/* Avatar */}
                         <img
                           alt="Image placeholder"
-                          src="/assets/img/theme/team-3.jpg"
+                          src="https://lh3.googleusercontent.com/ogw/ADea4I6crQF6NZv_2mKbRDY5xdVCCdkz4VVn6zNlRESV=s32-c-mo"
                           className="avatar rounded-circle"
                         />
                       </div>
@@ -188,7 +188,7 @@ function Header() {
                         {/* Avatar */}
                         <img
                           alt="Image placeholder"
-                          src="assets/img/theme/team-4.jpg"
+                          src="https://lh3.googleusercontent.com/ogw/ADea4I6crQF6NZv_2mKbRDY5xdVCCdkz4VVn6zNlRESV=s32-c-mo"
                           className="avatar rounded-circle"
                         />
                       </div>
@@ -216,7 +216,7 @@ function Header() {
                         {/* Avatar */}
                         <img
                           alt="Image placeholder"
-                          src="assets/img/theme/team-5.jpg"
+                          src="https://lh3.googleusercontent.com/ogw/ADea4I6crQF6NZv_2mKbRDY5xdVCCdkz4VVn6zNlRESV=s32-c-mo"
                           className="avatar rounded-circle"
                         />
                       </div>
@@ -317,7 +317,7 @@ function Header() {
                       <span className="avatar avatar-sm rounded-circle">
                         <img
                           alt="Image placeholder"
-                          src="/assets/img/theme/team-4.jpg"
+                          src="https://lh3.googleusercontent.com/ogw/ADea4I6crQF6NZv_2mKbRDY5xdVCCdkz4VVn6zNlRESV=s32-c-mo"
                         />
                       </span>
                       <div className="media-body  ml-2  d-none d-lg-block">

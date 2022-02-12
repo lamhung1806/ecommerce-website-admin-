@@ -11,10 +11,10 @@ import { changeStatusForm } from "../redux/action/statusFormAction";
 import ProductForm from "./ProductForm/ProductForm";
 import ProductItem from "./ProductItem/ProductItem";
 import ProductPagination from "./ProductPagination";
-import "./style.css";
+import "./style.module.css";
 
 function ProductManagement() {
-  const [postPerPage, setPostPerPage] = useState(5);
+  const [postPerPage] = useState(4);
   const [curentPage, setCurentPage] = useState(1);
   const statusForm = useSelector((state) => state.statusFormReducer.status);
   const dispatch = useDispatch();
@@ -37,8 +37,12 @@ function ProductManagement() {
       ? dispatch(searchProducts(e.target.value))
       : dispatch(fetchProducts());
   };
-  const paginate = (data) => {
-    setCurentPage(data);
+  const downtPagination = () => {
+    if (curentPage > 1) setCurentPage(curentPage - 1);
+    else return;
+  };
+  const upPagination = () => {
+    setCurentPage(curentPage + 1);
   };
   return (
     <React.Fragment>
@@ -71,6 +75,13 @@ function ProductManagement() {
                     Search
                   </button>
                 </div>
+                <ProductPagination
+                  totalPages={productAll.length}
+                  postPerPage={postPerPage}
+                  curentPage={curentPage}
+                  downtPagination={downtPagination}
+                  upPagination={upPagination}
+                ></ProductPagination>
               </div>
               {/* Light table */}
               <div className="table-responsive">
@@ -111,11 +122,7 @@ function ProductManagement() {
           </div>
         </div>
       </div>
-      <ProductPagination
-        totalPages={productAll.length}
-        postPerPage={postPerPage}
-        paginate={paginate}
-      ></ProductPagination>
+
       {statusForm && <ProductForm />}
     </React.Fragment>
   );

@@ -5,7 +5,12 @@ import Oderdetail from "../component/Oder/oderDetail/Oderdetail";
 import Login from "../component/Login/Login";
 import UserManagement from "../component/User/UserManagement";
 import UpdateRole from "../component/User/UpdateRole";
+import Statistial from "../component/Statistical/Statistial";
 const router = [
+  {
+    path: "/statistical",
+    component: Statistial,
+  },
   {
     path: "/productManagement",
     component: ProductManagement,

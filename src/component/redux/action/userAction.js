@@ -1,6 +1,5 @@
 import axios from "axios";
 import { token, url } from "../../../constains/config";
-import { notifyError, notifySuccess } from "../../../constains/msg";
 export const getUerDataAction = (data) => {
   return {
     type: "GET_USER_DATA",
@@ -26,16 +25,6 @@ export const searchUserAction = (data) => {
   };
 };
 
-// export const getUserData = () => async (dispatch) => {
-//   try {
-//     const response = await axios.get(`${url}/Accounts/GetAllUsers`, {
-//       headers: { Authorization: `Bearer ${token}` },
-//     });
-//     dispatch(getUerDataAction(response.data));
-//   } catch {
-//     console.log("lỗi");
-//   }
-// };
 export const getUserData = () => (dispatch) => {
   axios
     .get(`${url}/Accounts/GetAllUsers`, {

@@ -26,7 +26,7 @@ function Login() {
         dispatch(getDataUser(response.data));
         notifySuccess();
         setTimeout(() => {
-          history.push("/ProductManagement");
+          history.push("/statistical");
           window.location.reload();
         }, 500);
       })
