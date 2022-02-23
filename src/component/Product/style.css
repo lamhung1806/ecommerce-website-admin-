@@ -23,14 +23,17 @@
  background-size: contain; ;
 }
 .button_primary {
-    width: 60px;
+    width: 64px;
 }
-.button_primary:last-child {
+/* .button_primary:last-child {
     margin-top: 10px;
-}
+} */
 .pagination{
    align-content: center;
 }
 .curentpage {
     cursor: pointer;
+}
+.button_primary_oder{
+    margin-top: 10px;
 }

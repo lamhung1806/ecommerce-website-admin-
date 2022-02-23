@@ -11,7 +11,7 @@ function Oder() {
   const indexLast = curentPage * pagePerPage;
   const indexFirst = indexLast - pagePerPage;
   const listOder = useSelector((state) => state.oder.oderData);
-  const lisOderAPage = listOder.slice(indexFirst, indexLast);
+  const lisOderAPage = listOder ? listOder.slice(indexFirst, indexLast) : [];
   useEffect(() => {
     dispatch(getOder());
   }, []);
@@ -71,8 +71,6 @@ function Oder() {
                       <th scope="col" className="sort" data-sort="completion">
                         Address
                       </th>
-                      <th scope="col">CreateOn</th>
-                      <th scope="col">UptateOn</th>
 
                       <th scope="col">Detail</th>
                     </tr>

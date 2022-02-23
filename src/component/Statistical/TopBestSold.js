@@ -4,7 +4,7 @@ import React from "react";
 function TopBestSold({ bestSoldList }) {
   return (
     <div className="col col-4 ">
-      <h3 className="title_product_warning text-warning">Top Best Sole</h3>
+      <h3 className="title_product_warning text-warning">Top Best Sold</h3>
       <table className="table  table-flush">
         <thead className="thead-light">
           <tr>

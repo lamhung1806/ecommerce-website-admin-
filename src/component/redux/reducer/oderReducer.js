@@ -15,13 +15,9 @@ const oder = (state = oderInitialState, action) => {
         oderDetailData: action.payload,
       };
     case "ODER_CONFIRM":
-      return {
-        ...state,
-      };
+      return state;
     case "ODER_CANCEL":
-      return {
-        ...state,
-      };
+      return state;
 
     default:
       return state;

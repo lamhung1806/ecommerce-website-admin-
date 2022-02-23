@@ -11,7 +11,7 @@ import { changeStatusForm } from "../redux/action/statusFormAction";
 import ProductForm from "./ProductForm/ProductForm";
 import ProductItem from "./ProductItem/ProductItem";
 import ProductPagination from "./ProductPagination";
-import "./style.module.css";
+import "./style.css";
 
 function ProductManagement() {
   const [postPerPage] = useState(4);
@@ -54,9 +54,12 @@ function ProductManagement() {
               {/* Card header */}
               <div className="card-header border-0">
                 <h3 className="mb-0 text-center">Product Table</h3>
-                <button onClick={handlerADD} className="btn btn-success">
-                  Add Product
-                </button>
+                <a href="#form">
+                  <button onClick={handlerADD} className="btn btn-success">
+                    {" "}
+                    Add Product
+                  </button>
+                </a>
 
                 <div className="input-group input-group  mb-3">
                   <input
@@ -92,7 +95,7 @@ function ProductManagement() {
                         Product
                       </th>
                       <th scope="col" className="sort" data-sort="budget">
-                        promotionPrice
+                        Sale off
                       </th>
                       <th scope="col" className="sort" data-sort="status">
                         Price
@@ -100,6 +103,9 @@ function ProductManagement() {
                       <th scope="col">Color</th>
                       <th scope="col" className="sort" data-sort="completion">
                         Descripton
+                      </th>
+                      <th scope="col" className="sort" data-sort="completion">
+                        Specifications
                       </th>
                       <th scope="col" className="sort" data-sort="completion">
                         Quantity

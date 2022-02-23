@@ -22,6 +22,7 @@ function ProductForm() {
     categoryId: "",
     color: "",
     quantity: "",
+    size: "",
   });
   useEffect(() => {
     setDataPoduct(getAProduct);
@@ -50,6 +51,7 @@ function ProductForm() {
       categoryId: "",
       color: "",
       quantity: "",
+      size: "",
     });
   };
   const handlerUpdate = (e) => {
@@ -66,10 +68,11 @@ function ProductForm() {
       categoryId: "",
       color: "",
       quantity: "",
+      size: "",
     });
   };
   return (
-    <div className="container">
+    <div id="form" className="container">
       <form className="add_form">
         <div className="row input_wrap">
           <label className="product_name ">ProductName</label>
@@ -151,11 +154,22 @@ function ProductForm() {
           />
         </div>
         <div className="row input_wrap">
-          <label className="product_name">promotionPrice</label>
+          <label className="product_name">Sale off</label>
           <input
             value={dataProduct.promotionPrice}
             onChange={(e) =>
               setDataPoduct({ ...dataProduct, promotionPrice: e.target.value })
+            }
+            type="text"
+            className="input_form"
+          />
+        </div>
+        <div className="row input_wrap">
+          <label className="product_name">Specifications </label>
+          <input
+            value={dataProduct.size}
+            onChange={(e) =>
+              setDataPoduct({ ...dataProduct, size: e.target.value })
             }
             type="text"
             className="input_form"

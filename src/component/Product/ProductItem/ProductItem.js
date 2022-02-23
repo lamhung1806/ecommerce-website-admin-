@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAProducts } from "../../redux/action/ProductApiAction";
 import { changeStatusForm } from "../../redux/action/statusFormAction";
+import "../style.css";
 
 function ProductItem(props) {
   const statusForm = useSelector((state) => state.statusFormReducer.status);
@@ -32,7 +33,7 @@ function ProductItem(props) {
         </div>
       </th>
       <td className="budget">
-        {props.data.promotionPrice.toLocaleString("vi-VN")} VND
+        {props.data.promotionPrice.toLocaleString("vi-VN")} %
       </td>
       <td>
         <span className="badge badge-dot mr-4">
@@ -44,23 +45,26 @@ function ProductItem(props) {
       </td>
       <td className="Product_color">{props.data.color}</td>
       <div className="product_descriptions">{props.data.description}</div>
+      <td className="product_quantity">{props.data.size}</td>
       <td className="product_quantity">{props.data.quantity}</td>
       <td className="product_optinons">
         <div className="row">
-          <button
-            onClick={getAproduct}
-            type="button"
-            className="btn btn-warning btn-sm button_primary"
-          >
-            Update
-          </button>
-          <button
-            onClick={handleDelete}
-            type="button"
-            className="btn btn-danger btn-sm button_primary"
-          >
-            Delete
-          </button>
+          <a href="#form">
+            <button
+              onClick={getAproduct}
+              type="button"
+              className="btn btn-warning btn-sm button_primary button_primary "
+            >
+              Update
+            </button>
+            <button
+              onClick={handleDelete}
+              type="button"
+              className="btn btn-danger btn-sm button_primary button_primary"
+            >
+              Delete
+            </button>
+          </a>
         </div>
       </td>
     </tr>

@@ -26,8 +26,6 @@ function OderItem({ data }) {
       </td>
       <td className="phone_oder">{data.phone}</td>
       <td className="adress_oder">{data.address}</td>
-      <td className="create_on">{data.createdOn}</td>
-      <td className="update_on">{data.updatedOn}</td>
       <td className="product_optinons">
         <div className="row">
           <Link to="/oderManagement/oderDetails">
